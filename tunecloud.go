@@ -1,14 +1,17 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/merickson/tunecloud/tunecloud"
 )
 
-func main() {
-	musicpath := "/Users/matt/Music/iTunes/iTunes Media/Music"
+var musicpath = flag.String("path", "", "Filesystem path to scan for music")
 
-	md := tunecloud.NewMusicDirectory(musicpath)
+func main() {
+	flag.Parse()
+
+	md := tunecloud.NewMusicDirectory(*musicpath)
 
 	res, _ := md.Scan()
 
