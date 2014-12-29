@@ -18,7 +18,7 @@ type MusicDirectory struct {
 	pathName string
 }
 
-// scanner is a clojure to build a filepath.WalkFunc with our Track slice included.
+// scanner is a closure to build a filepath.WalkFunc with our Track slice included.
 func scanner(tslice *[]Track) filepath.WalkFunc {
 	return func(path string, info os.FileInfo, err error) error {
 		if err != nil {
